@@ -1,3 +1,4 @@
+-- Information depository for businesses. Accesed by most scripts
 
 local module = {
 	['LemonadeStand'] = {
