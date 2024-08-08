@@ -15,6 +15,8 @@ local UniqueID = Config.Value.UniqueID.Value
 
 local Debounce = false
 
+
+-- Fetching the run time for the cycle (and tween) from the module
 local function FetchRuntime()
 	for i, x in BusinessesInfoModule do
 		if x['UniqueID'] == UniqueID then
@@ -23,6 +25,7 @@ local function FetchRuntime()
 	end
 end
 
+-- Fetching the reward for the cycle from the module
 local function FetchReward()
 	for i, x in BusinessesInfoModule do
 		if x['UniqueID'] == UniqueID then
@@ -43,12 +46,13 @@ local function RunCycle()
 	
 	Debounce = false
 	Progress.Size = UDim2.new(0,0,1,0)
-	
+
+-- Multiplying the reward by business units
 	return Reward*Config.Value.OwnedInt.Value
 end
 
 if Config.Value.OwnedInt.Value <= 0 then
-
+-- Waiting until the user's requirements for business operations are fulfilled
 	repeat task.wait(.1) until Config.Value.OwnedInt.Value >= 1
 
 	while task.wait(.1) do
