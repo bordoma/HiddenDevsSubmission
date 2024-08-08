@@ -9,7 +9,8 @@ Players.PlayerAdded:Connect(function(Player)
 	local PlayerGui = Player.PlayerGui
 	local BusinessTemplateLocation = PlayerGui:WaitForChild('ScreenGui').Main.Container.BusinessDisplayContainer.ScrollingFrame
 	
-	-- Establishing Framework
+	-- Establishing Framework --
+	-- These are used throughout the framework --
 	
 	local Datafolder = Instance.new('Folder')
 	Datafolder.Name = 'Datafolder'
@@ -33,7 +34,7 @@ Players.PlayerAdded:Connect(function(Player)
 	ClickInt.Parent = ValueFolder
 	ClickInt.Value = 1
 	
-	-- Fetching Businesses
+	-- Fetching Businesses --
 	
 	for i, x in BussinessesInfoModule do
 		if x['Enabled'] == true then
@@ -60,6 +61,8 @@ Players.PlayerAdded:Connect(function(Player)
 			LatestPrice.Name = 'LatestPrice'
 			LatestPrice.Parent = Config
 			LatestPrice.Value = x['BasePrice']
+
+			-- Establishing businesses within the player's UI --
 			
 			local ClonedTemplate = BusinessTemplate:Clone()
 			ClonedTemplate.Parent = BusinessTemplateLocation
