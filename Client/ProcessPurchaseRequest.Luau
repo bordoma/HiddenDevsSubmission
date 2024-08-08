@@ -16,6 +16,9 @@ Object.MouseButton1Click:Connect(function()
 	if Debounce == false then
 		Debounce = true
 		for i, x in BusinessesInfoModule do
+
+-- Fetching business information, checking requirements, and firing the remote event to communicate with the server
+
 			if x['UniqueID'] == Config.Value.UniqueID.Value then
 				if MoneyInt.Value >= Config.Value.LatestPrice.Value then
 					ClientRequest:FireServer(2, Config)
